@@ -10,10 +10,11 @@ interface HeaderProps {
 
 export function Header({ onAddNewTask }: HeaderProps) {
   const [title, setTitle] = useState('');
-  
+
   function handleNewTodo(event: FormEvent) {
     event.preventDefault();
     onAddNewTask(title);
+    setTitle('');
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -29,6 +30,7 @@ export function Header({ onAddNewTask }: HeaderProps) {
           placeholder="Adicione uma tarefa" 
           type="text" 
           onChange={handleChange}
+          value={title}
         />
         <button type="submit">
           Criar

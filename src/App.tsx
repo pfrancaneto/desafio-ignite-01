@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 import "./global.css";
@@ -23,10 +23,15 @@ function App() {
     ])
   }
 
+  function deleteTodo(deleteTodo: string) {
+    const todoDeletado = task.filter(tasks => tasks.id !== deleteTodo);
+    setTask(todoDeletado);
+  }
+
   return (
     <>
       <Header onAddNewTask={addNewTodo} />
-      <Tasks task={task} />
+      <Tasks task={task} onDelete={deleteTodo} />
     </>
   );
 }
