@@ -10,17 +10,22 @@ export interface ITask {
 }
 
 function App() {
-  const [task, setTask] = useState<ITask[]>([
-    {
-      id: crypto.randomUUID(),
-      title: 'teste',
-      isCompleted: true,
-    }
-  ]);
+  const [task, setTask] = useState<ITask[]>([]);
+
+  function addNewTodo(newTitle: string) {
+    setTask([
+      ...task,
+      {
+        id: crypto.randomUUID(),
+        title: newTitle,
+        isCompleted: false,
+      }
+    ])
+  }
 
   return (
     <>
-      <Header />
+      <Header onAddNewTask={addNewTodo} />
       <Tasks task={task} />
     </>
   );
