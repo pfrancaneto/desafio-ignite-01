@@ -1,9 +1,9 @@
-import styles from "./header.module.css";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 import Logo from "../../assets/Logo.png";
 import { PlusCircle } from "phosphor-react";
-import React, { ChangeEvent, FormEvent, useState } from "react";
 
+import styles from "./header.module.css";
 interface HeaderProps {
   onAddNewTask: (newTitle: string) => void;
 }

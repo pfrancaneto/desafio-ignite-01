@@ -1,5 +1,6 @@
 import { Trash, CheckCircle } from "phosphor-react";
 import { ITask } from "../../App";
+
 import styles from "./task.module.css";
 
 interface TaskProps {

@@ -23,7 +23,6 @@ function App() {
         isCompleted: false,
       },
     ]);
-    console.log(task);
   }
 
   function deleteTodo(deleteTodo: string) {
