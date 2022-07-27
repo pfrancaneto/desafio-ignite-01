@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
+
 import "./global.css";
 
 export interface ITask {
@@ -19,13 +21,13 @@ function App() {
         id: crypto.randomUUID(),
         title: newTitle,
         isCompleted: false,
-      }
-    ])
-    console.log(task)
+      },
+    ]);
+    console.log(task);
   }
 
   function deleteTodo(deleteTodo: string) {
-    const todoDeletado = task.filter(tasks => tasks.id !== deleteTodo);
+    const todoDeletado = task.filter((tasks) => tasks.id !== deleteTodo);
     setTask(todoDeletado);
   }
 
@@ -38,14 +40,18 @@ function App() {
         };
       }
       return task;
-    })
+    });
     setTask(newTaks);
   }
 
   return (
     <>
       <Header onAddNewTask={addNewTodo} />
-      <Tasks tasks={task} onDelete={deleteTodo} onComplete={toogleTaskComplete} />
+      <Tasks
+        tasks={task}
+        onDelete={deleteTodo}
+        onComplete={toogleTaskComplete}
+      />
     </>
   );
 }
