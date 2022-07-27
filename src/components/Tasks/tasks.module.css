@@ -42,3 +42,16 @@
   flex-direction: column;
   gap: .75rem;
 }
+
+.empty {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty svg {
+  opacity: 0.4;
+}

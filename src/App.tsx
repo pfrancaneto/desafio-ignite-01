@@ -21,6 +21,7 @@ function App() {
         isCompleted: false,
       }
     ])
+    console.log(task)
   }
 
   function deleteTodo(deleteTodo: string) {
@@ -28,10 +29,23 @@ function App() {
     setTask(todoDeletado);
   }
 
+  function toogleTaskComplete(taskComplete: string) {
+    const newTaks = task.map((task) => {
+      if (task.id === taskComplete) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+      return task;
+    })
+    setTask(newTaks);
+  }
+
   return (
     <>
       <Header onAddNewTask={addNewTodo} />
-      <Tasks task={task} onDelete={deleteTodo} />
+      <Tasks tasks={task} onDelete={deleteTodo} onComplete={toogleTaskComplete} />
     </>
   );
 }
